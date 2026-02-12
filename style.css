@@ -1,0 +1,200 @@
+:root {
+    --bg-color: #050505;
+    --text-color: #ffffff;
+    --accent-red: #ff1a1a;
+    --gray: #888;
+    --grid-color: rgba(255, 255, 255, 0.05);
+}
+
+* { box-sizing: border-box; }
+
+body {
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    overflow-x: hidden;
+    background-image: 
+        linear-gradient(var(--grid-color) 1px, transparent 1px),
+        linear-gradient(90deg, var(--grid-color) 1px, transparent 1px);
+    background-size: 50px 50px;
+}
+
+/* TYPOGRAPHY */
+h1, h2, h3, .acc-title, .big-btn, .hobbies-track, .footer-headline, .footer-logo {
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+}
+
+/* --- 1. HERO --- */
+.hero {
+    position: relative; height: 100vh; width: 100%; overflow: hidden;
+    background: black; display: flex; align-items: center;
+}
+.hero-video { position: absolute; inset: 0; z-index: 0; }
+.hero-video video {
+    width: 100%; height: 100%; object-fit: cover;
+    transform: scale(1.2) scaleX(-1);
+    filter: brightness(0.5) contrast(1.1); 
+}
+.hero-content {
+    position: relative; z-index: 2; padding: 0 10%; width: 100%; max-width: 1400px; margin: 0 auto;
+}
+.hero-title {
+    font-size: clamp(50px, 7vw, 120px); line-height: 0.9;
+    text-transform: uppercase; margin: 0; text-shadow: 0 10px 30px rgba(0,0,0,0.8);
+}
+.tagline { color: var(--accent-red); font-weight: bold; letter-spacing: 2px; font-size: 14px; margin-bottom: 20px; }
+.hero-sub { margin-top: 30px; font-size: 18px; color: #ddd; max-width: 500px; line-height: 1.5; }
+.btn {
+    display: inline-block; margin-top: 40px; padding: 15px 35px;
+    border: 1px solid rgba(255,255,255,0.4); background: rgba(0,0,0,0.3);
+    color: white; text-decoration: none; backdrop-filter: blur(5px);
+    transition: 0.3s; cursor: pointer; text-transform: uppercase; letter-spacing: 1px;
+}
+.btn:hover { background: white; color: black; }
+
+/* --- 2. STATEMENT --- */
+.statement { padding: 150px 10%; position: relative; z-index: 1; }
+.statement h2 { font-size: clamp(24px, 4vw, 50px); text-transform: uppercase; line-height: 1.4; color: #eee; max-width: 1100px; }
+
+/* --- 3. HOBBIES MARQUEE --- */
+.hobbies-wrapper {
+    background: var(--accent-red); border-radius: 100px;
+    margin: 50px 5%; padding: 20px 0; overflow: hidden;
+    white-space: nowrap; position: relative; z-index: 2;
+    box-shadow: 0 0 30px rgba(255, 26, 26, 0.2);
+}
+.hobbies-track {
+    display: inline-block; font-size: clamp(20px, 3vw, 28px);
+    color: black; text-transform: uppercase; animation: marquee 20s linear infinite;
+}
+.dot { margin: 0 20px; opacity: 0.4; }
+@keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+/* --- 4. ACCORDION --- */
+.accordion-section { padding: 100px 10%; position: relative; z-index: 1; }
+.accordion-item { border-bottom: 1px solid #333; overflow: hidden; }
+.accordion-header {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 35px 0; cursor: pointer; transition: color 0.3s;
+}
+.accordion-header:hover { color: var(--accent-red); }
+.acc-title { font-size: clamp(20px, 3vw, 36px); text-transform: uppercase; }
+.acc-icon { font-size: 30px; font-weight: 300; transition: transform 0.3s; }
+.accordion-content { height: 0; overflow: hidden; }
+.content-inner { padding-bottom: 40px; padding-left: 20px; }
+.project-row {
+    display: flex; justify-content: space-between; padding: 15px 0;
+    border-bottom: 1px solid #222; font-size: 18px; color: #ccc;
+}
+.tags-wrapper { display: flex; flex-wrap: wrap; gap: 15px; }
+.tag { padding: 10px 20px; border: 1px solid #333; border-radius: 30px; font-size: 14px; color: #ccc; transition: 0.3s; }
+.tag:hover { border-color: var(--accent-red); color: white; }
+
+/* --- 5. CTA --- */
+.cta {
+    height: 60vh; display: flex; align-items: center; justify-content: center;
+    text-align: center; position: relative; z-index: 1; overflow: hidden;
+}
+.cta-text {
+    font-size: clamp(30px, 5vw, 80px); line-height: 1;
+    text-transform: uppercase; margin-bottom: 50px; color: white;
+}
+.big-btn {
+    padding: 25px 80px; border-radius: 50px; font-size: 20px;
+    border: 1px solid rgba(255,255,255,0.5); background: transparent;
+    color: white; cursor: pointer; transition: 0.3s;
+    text-decoration: none; display: inline-block; font-family: 'Syne', sans-serif;
+}
+.big-btn:hover { background: white; color: black; transform: scale(1.05); }
+
+/* --- 6. MEGA FOOTER & FRACTAL NOISE --- */
+.mega-footer {
+    background: #000; color: white; border-top: 1px solid #333;
+    position: relative; z-index: 5; overflow: hidden;
+}
+.footer-visual {
+    position: relative; padding: 120px 5%; text-align: center;
+    background: radial-gradient(circle at center, #1a0505 0%, #000000 80%);
+    overflow: hidden; perspective: 1000px;
+}
+
+/* FRACTAL TEXT STYLE */
+.footer-headline {
+    font-size: clamp(60px, 9vw, 150px); line-height: 0.9;
+    text-transform: uppercase; position: relative; z-index: 10;
+    /* Outline effect */
+    color: transparent; -webkit-text-stroke: 1px rgba(255, 255, 255, 0.4);
+    cursor: pointer;
+    /* Apply the SVG filter */
+    filter: url(#noiseFilter); 
+}
+
+/* 3D Wrapper */
+.parallax-wrapper {
+    position: absolute; top: 50%; left: 50%;
+    transform: translate(-50%, -50%); width: 100%; height: 100%;
+    pointer-events: none; z-index: 1;
+    display: flex; justify-content: center; align-items: center;
+}
+.layer { position: absolute; will-change: transform; }
+
+/* Visible Glow */
+.layer-glow {
+    width: 500px; height: 500px;
+    background: radial-gradient(circle, var(--accent-red) 0%, transparent 70%);
+    filter: blur(80px); opacity: 0.6; mix-blend-mode: screen;
+    border-radius: 50%; z-index: 0;
+}
+
+/* Objects */
+.float-img { transition: 0.3s; }
+.layer-obj-1 { left: 20%; top: 40%; }
+.layer-obj-1 img {
+    width: 200px; opacity: 0.5;
+    filter: grayscale(100%) sepia(100%) hue-rotate(320deg) saturate(500%) brightness(0.7) blur(2px);
+}
+.layer-obj-2 { right: 20%; top: 30%; z-index: 10; }
+
+/* Controller Visibility Fix */
+.controller-fix {
+    width: 400px; transform: rotate(-15deg);
+    z-index: 20; opacity: 0.3;
+    scale: 0.8;
+    filter: brightness(1.1) drop-shadow(0 0 30px rgba(255, 26, 26, 0.6));
+}
+
+/* Footer Grid */
+.footer-grid { display: grid; grid-template-columns: 1fr 1.5fr; border-top: 1px solid #333; }
+.footer-col { padding: 60px; border-right: 1px solid #333; }
+.footer-col:last-child { border-right: none; }
+.social-box { display: flex; }
+.social-btn {
+    width: 50px; height: 50px; display: flex; align-items: center; justify-content: center;
+    border: 1px solid #333; color: #888; text-decoration: none; margin-right: -1px; transition: 0.3s;
+}
+.social-btn:hover { background: var(--accent-red); color: black; }
+
+/* Links Luminance */
+.links-col { padding: 0; display: flex; flex-direction: column; }
+.links-row { display: flex; flex: 1; border-bottom: 1px solid #333; }
+.link-group {
+    flex: 1; padding: 60px; border-right: 1px solid #333;
+    display: flex; flex-direction: column; gap: 15px;
+}
+.link-group h4 { color: white; margin-bottom: 15px; font-size: 14px; letter-spacing: 1px; }
+.link-group a { 
+    color: #777; text-decoration: none; transition: all 0.3s ease; font-size: 16px; 
+}
+/* GLOW ON HOVER */
+.link-group a:hover { 
+    color: #fff; text-shadow: 0 0 10px rgba(255, 255, 255, 0.8); padding-left: 10px;
+}
+.footer-bottom { padding: 20px 60px; border-top: 1px solid #333; font-size: 12px; color: #555; }
+
+@media (max-width: 900px) {
+    .footer-grid { grid-template-columns: 1fr; }
+    .footer-col, .link-group { border-right: none; border-bottom: 1px solid #333; padding: 40px; }
+    .links-row { flex-direction: column; }
+}
